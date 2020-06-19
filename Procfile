@@ -1,2 +1,1 @@
-
-web: nodejs ./bin/www
+web: npm start
