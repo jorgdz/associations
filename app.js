@@ -1,5 +1,6 @@
 var createError = require("http-errors");
 var express = require("express");
+var expressHbs = require("express-handlebars");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
@@ -10,6 +11,19 @@ var app = express();
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
+
+/*var hbs = expressHbs.create({
+  defaultLayout: "layout.hbs",
+  layoutsDir: path.join(__dirname, "views"),
+  //partialsDir: path.join(__dirname, ""),
+  helpers: {
+    trimText: function (str) {
+      return str + " HOLA JORGE";
+    },
+  },
+});
+
+app.engine("hbs", hbs.engine);*/
 app.set("view engine", "hbs");
 
 app.use(logger("dev"));
