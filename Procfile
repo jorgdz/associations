@@ -1,0 +1,2 @@
+
+web: nodejs ./bin/www
