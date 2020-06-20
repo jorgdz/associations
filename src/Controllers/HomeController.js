@@ -14,7 +14,7 @@ exports.index = async (req, res, next) => {
     order: [["id", "DESC"]],
   });
 
-  res.render("index", { title: "Inicio - Productos", products: products });
+  res.render("index", { title: "Productos", products: products });
 };
 
 exports.show = (req, res, next) => {
