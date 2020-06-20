@@ -1,6 +1,6 @@
 var createError = require("http-errors");
 var express = require("express");
-var expressHbs = require("express-handlebars");
+var hbs = require("hbs");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
@@ -12,19 +12,23 @@ var app = express();
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
 
-/*var hbs = expressHbs.create({
-  defaultLayout: "layout.hbs",
-  layoutsDir: path.join(__dirname, "views"),
-  //partialsDir: path.join(__dirname, ""),
-  helpers: {
-    trimText: function (str) {
-      return str + " HOLA JORGE";
-    },
-  },
+app.set("view engine", "hbs");
+
+hbs.registerPartials(__dirname + "/views/partials");
+
+hbs.registerHelper("trimText", function (str) {
+  return str.substring(0, 25);
 });
 
-app.engine("hbs", hbs.engine);*/
-app.set("view engine", "hbs");
+hbs.registerHelper("priceInteger", function (price) {
+  var entPart = (price + "").split(".")[0];
+  return entPart;
+});
+
+hbs.registerHelper("priceDecimal", function (price) {
+  var decPart = (price + "").split(".")[1];
+  return `${decPart == undefined ? "" : "." + decPart}`;
+});
 
 app.use(logger("dev"));
 app.use(express.json());
