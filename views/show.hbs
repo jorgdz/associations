@@ -1,7 +1,126 @@
-<h1>{{title}}</h1>
+    {{> menu}}
 
-{{#if product.offer}}
-  <p>En oferta</p>
-{{/if}}
+    <div class="super_container">
+      <!-- Header -->
 
-<span>{{product.name}} - {{ product.price }} - {{ product.user.name }} {{ product.user.lastname }}</span>
+      {{> header}}
+
+      <div class="super_container_inner">
+        <div class="super_overlay"></div>
+
+        
+        <!-- Home -->
+        <div class="home">
+          <div class="home_container d-flex flex-column align-items-center justify-content-end">
+            <div class="home_content text-center">
+              <div class="home_title">Nombre de categoría</div>
+              <div class="breadcrumbs d-flex flex-column align-items-center justify-content-center">
+                <ul class="d-flex flex-row align-items-start justify-content-start text-center">
+                  <li><a href="#">Subcategoria 1</a></li>
+                  <li><a href="#">Subcategoria 2</a></li>
+                  <li><a href="#">Subcategoria 3</a></li>
+                  <li><a href="#">Subcategoria 4</a></li>
+                  <li><a href="#">Subcategoria 5</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+		    <!-- Product -->
+
+        <div class="product">
+        <div class="container">
+          <div class="row">
+            
+            <!-- Product Image -->
+            <div class="col-lg-6">
+              <div class="product_image_slider_container">
+                <div id="slider" class="flexslider">
+                  <ul class="slides">
+                    {{#each product.images as | img |}}
+                      <li>
+                        <img src="{{ img.storageUrl }}" />
+                      </li>                    
+                    {{/each}}
+                  </ul>
+                </div>
+                <div class="carousel_container">
+                  <div id="carousel" class="flexslider">
+                    <ul class="slides">
+                      {{#each product.images as | img |}}
+                        <li>
+                          <div><img src="{{ img.storageUrl }}" /></div>
+                        </li>                     
+                      {{/each}}
+                    </ul>
+                  </div>
+                  <div class="fs_prev fs_nav disabled"><i class="fa fa-chevron-up" aria-hidden="true"></i></div>
+                  <div class="fs_next fs_nav"><i class="fa fa-chevron-down" aria-hidden="true"></i></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Product Info -->
+            <div class="col-lg-6 product_col">
+              <div class="product_info">
+                <div class="product_name">{{ product.name }}</div>
+                <div class="product_category">In <a href="#">Category</a></div>
+                <div class="product_rating_container d-flex flex-row align-items-center justify-content-start">
+                  <div class="rating_r rating_r_4 product_rating"><i></i><i></i><i></i><i></i><i></i></div>
+                  <div class="product_reviews">4.7 out of (3514)</div>
+                  <div class="product_reviews_link"><a href="#">Reviews</a></div>
+                </div>
+                <div class="product_price">${{priceInteger product.price}}<span>{{priceDecimal product.price}}</span></div>         
+                <div class="product_text">
+                  <p>{{ product.description }}</p>
+                </div>
+                <div class="product_buttons">
+                  <div class="text-right d-flex flex-row align-items-start justify-content-start">
+                    <div class="product_button product_fav text-center d-flex flex-column align-items-center justify-content-center">
+                      <div><div><img src="images/heart_2.svg" class="svg" alt=""><div>+</div></div></div>
+                    </div>
+                    <div class="product_button product_cart text-center d-flex flex-column align-items-center justify-content-center">
+                      <div><div><img src="images/cart.svg" class="svg" alt=""><div>+</div></div></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+
+
+        <!-- Boxes -->
+
+        <div class="boxes">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="box d-flex flex-row align-items-center justify-content-start">
+                  <div class="mt-auto"><div class="box_image"><img src="images/boxes_1.png" alt=""></div></div>
+                  <div class="box_content">
+                    <div class="box_title">Size Guide</div>
+                    <div class="box_text">Phasellus sit amet nunc eros sed nec tellus.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6 box_col">
+                <div class="box d-flex flex-row align-items-center justify-content-start">
+                  <div class="mt-auto"><div class="box_image"><img src="images/boxes_2.png" alt=""></div></div>
+                  <div class="box_content">
+                    <div class="box_title">Shipping</div>
+                    <div class="box_text">Phasellus sit amet nunc eros sed nec tellus.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer -->
+
+        {{> footer}}
+      </div>
+    </div>
