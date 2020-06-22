@@ -12,15 +12,21 @@ const StylesProduct = [
   "/styles/product_responsive.css",
 ];
 
+const StylesCart = ["styles/cart.css", "styles/cart_responsive.css"];
+
 const JsHome = ["/js/custom.js"];
 const JsProduct = [
   "/plugins/flexslider/jquery.flexslider-min.js",
   "/js/product.js",
 ];
 
+const JsCart = ["js/cart.js"];
+
 module.exports = {
   StylesHome,
   StylesProduct,
+  StylesCart,
   JsHome,
   JsProduct,
+  JsCart,
 };

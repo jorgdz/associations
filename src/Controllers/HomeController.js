@@ -8,8 +8,10 @@ const Category = require("../Models").Category;
 const {
   StylesHome,
   StylesProduct,
+  StylesCart,
   JsHome,
   JsProduct,
+  JsCart,
 } = require("../../config/static");
 
 exports.index = async (req, res, next) => {
@@ -75,4 +77,8 @@ exports.show = async (req, res, next) => {
     console.log(error);
     res.render("No se ha encontrado el producto");
   }
+};
+
+exports.cart = (req, res, next) => {
+  res.render("cart", { styles: StylesHome, javascripts: JsHome });
 };
