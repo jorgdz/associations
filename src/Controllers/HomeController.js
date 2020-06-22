@@ -79,6 +79,15 @@ exports.show = async (req, res, next) => {
   }
 };
 
-exports.cart = (req, res, next) => {
-  res.render("cart", { styles: StylesHome, javascripts: JsHome });
+exports.cart = async (req, res, next) => {
+  const categories = await Category.findAll({
+    order: [["name", "ASC"]],
+  });
+
+  res.render("cart", {
+    title: "Carrito",
+    categories: categories,
+    styles: StylesCart,
+    javascripts: JsCart,
+  });
 };
