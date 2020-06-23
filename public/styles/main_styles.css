@@ -1019,6 +1019,43 @@ section {
   padding-top: 72px;
   padding-bottom: 82px;
 }
+
+.product_price {
+
+  bottom: 20px;
+  position: absolute;
+  text-shadow: 1px 1px 2px gray;
+  right: 12px;
+
+}
+
+.product_sales {
+
+  background-color: red;
+  box-shadow: 1px 1px 3px black;
+  color: white;
+  font-size: 16px;
+  height: 40px;
+  left: -60px;
+  padding-top: 6px;
+  padding-bottom: 12px;
+  position: absolute flex;
+  text-shadow: 1px 1px 2px gray;
+  top: 30px; 
+  transform: rotate(-40deg);
+  width: 200px;
+  
+}
+
+.product_sales > span {
+  
+  display: block;
+  position: relative;
+  text-align: center;
+  left: 10px;
+  
+}
+
 .page_nav_row {
   margin-top: 35px;
 }
