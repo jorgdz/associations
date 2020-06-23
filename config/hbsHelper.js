@@ -1,7 +1,9 @@
 const hbs = require("hbs");
 
 hbs.registerHelper("trimText", function (str) {
-  return str.substring(0, 28);
+  let aux = str.substring(0, 28);
+  let index = aux.lastIndexOf(" ");
+  return aux.substring(0, index);
 });
 
 hbs.registerHelper("priceInteger", function (price) {

@@ -1320,12 +1320,16 @@ section {
   font-size: 30px;
   color: black;
   font-weight: bold;
+  position: absolute;
   text-decoration: none;
+  right: 0px;
+  top: -50px;
 }
 #close_menu:hover {
   cursor: pointer;
 }
 
 .close_nav {
+  position: relative;
   width: 100%;
 }

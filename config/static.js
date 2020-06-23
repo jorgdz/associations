@@ -5,22 +5,26 @@ const StylesHome = [
   "/styles/main_styles.css",
   "/styles/responsive.css",
 ];
-
 const StylesProduct = [
   "/plugins/flexslider/flexslider.css",
   "/styles/product.css",
   "/styles/product_responsive.css",
 ];
+const StylesCart = ["styles/cart.css", "styles/cart_responsive.css"];
 
-const JsHome = ["/js/custom.js"];
+const JsHome = ["/js/custom.js", "/js/productsStorage.js"];
 const JsProduct = [
   "/plugins/flexslider/jquery.flexslider-min.js",
   "/js/product.js",
+  "/js/productsStorage.js",
 ];
+const JsCart = ["js/cart.js", "js/buyer_car.js"];
 
 module.exports = {
   StylesHome,
   StylesProduct,
+  StylesCart,
   JsHome,
   JsProduct,
+  JsCart,
 };

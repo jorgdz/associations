@@ -8,8 +8,10 @@ const Category = require("../Models").Category;
 const {
   StylesHome,
   StylesProduct,
+  StylesCart,
   JsHome,
   JsProduct,
+  JsCart,
 } = require("../../config/static");
 
 exports.index = async (req, res, next) => {
@@ -75,4 +77,17 @@ exports.show = async (req, res, next) => {
     console.log(error);
     res.render("No se ha encontrado el producto");
   }
+};
+
+exports.cart = async (req, res, next) => {
+  const categories = await Category.findAll({
+    order: [["name", "ASC"]],
+  });
+
+  res.render("cart", {
+    title: "Carrito",
+    categories: categories,
+    styles: StylesCart,
+    javascripts: JsCart,
+  });
 };

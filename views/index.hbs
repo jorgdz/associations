@@ -8,8 +8,8 @@
       <div class="super_container_inner">
         <div class="super_overlay"></div>
 
+        <br>
         <!-- Products -->
-
         <div class="products">
           <div class="container">
             <div class="row">
@@ -19,25 +19,11 @@
                 </div>
               </div>
             </div>
-            <div class="row page_nav_row">
-              <div class="col">
-                <div class="page_nav">
-                  <ul
-                    class="d-flex flex-row align-items-start justify-content-center"
-                  >
-                    <li class="active"><a href="#">Salchipapas</a></li>
-                    <li><a href="#">Arroz con menestra y carne</a></li>
-                    <li><a href="#">Arroz con menestra y chuleta</a></li>
-                    <li><a href="#">Papipollos</a></li>
-                    <li><a href="#">Hamburguesas</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
+            <div class="row page_nav_row"></div>
             <div class="row products_row">
               {{#each products }}
                 <!-- Product -->
-                <div class="col-xl-4 col-md-6">
+                <div class="col-xl-3 col-md-6">
                   <div class="product">
                     <div class="product_image">
                       <img src="{{imageProduct images}}" alt="" />
@@ -58,16 +44,13 @@
                             </div>
                           </div>
                         </div>
-                        <div class="ml-auto text-right">
-                          <div class="rating_r rating_r_4 home_item_rating">
-                            <i></i><i></i><i></i><i></i><i></i>
-                          </div>
+                        <div class="ml-auto text-right">                    
                           <div class="product_price text-right">
                             ${{priceInteger price}}<span>{{priceDecimal price}}</span>
                           </div>
                         </div>
                       </div>
-                      <div class="product_buttons">
+                      <!--<div class="product_buttons">
                         <div
                           class="text-right d-flex flex-row align-items-start justify-content-start"
                         >
@@ -96,336 +79,11 @@
                             </div>
                           </div>
                         </div>
-                      </div>
+                      </div>-->
                     </div>
                   </div>
                 </div>
-              {{/each}}
-
-              <!--
-              <div class="col-xl-4 col-md-6">
-                <div class="product">
-                  <div class="product_image">
-                    <img src="images/product_2.jpg" alt="" />
-                  </div>
-                  <div class="product_content">
-                    <div
-                      class="product_info d-flex flex-row align-items-start justify-content-start"
-                    >
-                      <div>
-                        <div>
-                          <div class="product_name">
-                            <a href="product.html"
-                              >Cool Clothing with Brown Stripes</a
-                            >
-                          </div>
-                          <div class="product_category">
-                            In <a href="category.html">Category</a>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="ml-auto text-right">
-                        <div class="rating_r rating_r_4 home_item_rating">
-                          <i></i><i></i><i></i><i></i><i></i>
-                        </div>
-                        <div class="product_price text-right">
-                          $3<span>.99</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="product_buttons">
-                      <div
-                        class="text-right d-flex flex-row align-items-start justify-content-start"
-                      >
-                        <div
-                          class="product_button product_fav text-center d-flex flex-column align-items-center justify-content-center"
-                        >
-                          <div>
-                            <div>
-                              <img
-                                src="images/heart_2.svg"
-                                class="svg"
-                                alt=""
-                              />
-                              <div>+</div>
-                            </div>
-                          </div>
-                        </div>
-                        <div
-                          class="product_button product_cart text-center d-flex flex-column align-items-center justify-content-center"
-                        >
-                          <div>
-                            <div>
-                              <img src="images/cart.svg" class="svg" alt="" />
-                              <div>+</div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              
-              <div class="col-xl-4 col-md-6">
-                <div class="product">
-                  <div class="product_image">
-                    <img src="images/product_3.jpg" alt="" />
-                  </div>
-                  <div class="product_content">
-                    <div
-                      class="product_info d-flex flex-row align-items-start justify-content-start"
-                    >
-                      <div>
-                        <div>
-                          <div class="product_name">
-                            <a href="product.html"
-                              >Cool Clothing with Brown Stripes</a
-                            >
-                          </div>
-                          <div class="product_category">
-                            In <a href="category.html">Category</a>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="ml-auto text-right">
-                        <div class="rating_r rating_r_4 home_item_rating">
-                          <i></i><i></i><i></i><i></i><i></i>
-                        </div>
-                        <div class="product_price text-right">
-                          $3<span>.99</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="product_buttons">
-                      <div
-                        class="text-right d-flex flex-row align-items-start justify-content-start"
-                      >
-                        <div
-                          class="product_button product_fav text-center d-flex flex-column align-items-center justify-content-center"
-                        >
-                          <div>
-                            <div>
-                              <img
-                                src="images/heart_2.svg"
-                                class="svg"
-                                alt=""
-                              />
-                              <div>+</div>
-                            </div>
-                          </div>
-                        </div>
-                        <div
-                          class="product_button product_cart text-center d-flex flex-column align-items-center justify-content-center"
-                        >
-                          <div>
-                            <div>
-                              <img src="images/cart.svg" class="svg" alt="" />
-                              <div>+</div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-             
-              <div class="col-xl-4 col-md-6">
-                <div class="product">
-                  <div class="product_image">
-                    <img src="images/product_4.jpg" alt="" />
-                  </div>
-                  <div class="product_content">
-                    <div
-                      class="product_info d-flex flex-row align-items-start justify-content-start"
-                    >
-                      <div>
-                        <div>
-                          <div class="product_name">
-                            <a href="product.html"
-                              >Cool Clothing with Brown Stripes</a
-                            >
-                          </div>
-                          <div class="product_category">
-                            In <a href="category.html">Category</a>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="ml-auto text-right">
-                        <div class="rating_r rating_r_4 home_item_rating">
-                          <i></i><i></i><i></i><i></i><i></i>
-                        </div>
-                        <div class="product_price text-right">
-                          $3<span>.99</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="product_buttons">
-                      <div
-                        class="text-right d-flex flex-row align-items-start justify-content-start"
-                      >
-                        <div
-                          class="product_button product_fav text-center d-flex flex-column align-items-center justify-content-center"
-                        >
-                          <div>
-                            <div>
-                              <img
-                                src="images/heart_2.svg"
-                                class="svg"
-                                alt=""
-                              />
-                              <div>+</div>
-                            </div>
-                          </div>
-                        </div>
-                        <div
-                          class="product_button product_cart text-center d-flex flex-column align-items-center justify-content-center"
-                        >
-                          <div>
-                            <div>
-                              <img src="images/cart.svg" class="svg" alt="" />
-                              <div>+</div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              
-              <div class="col-xl-4 col-md-6">
-                <div class="product">
-                  <div class="product_image">
-                    <img src="images/product_5.jpg" alt="" />
-                  </div>
-                  <div class="product_content">
-                    <div
-                      class="product_info d-flex flex-row align-items-start justify-content-start"
-                    >
-                      <div>
-                        <div>
-                          <div class="product_name">
-                            <a href="product.html"
-                              >Cool Clothing with Brown Stripes</a
-                            >
-                          </div>
-                          <div class="product_category">
-                            In <a href="category.html">Category</a>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="ml-auto text-right">
-                        <div class="rating_r rating_r_4 home_item_rating">
-                          <i></i><i></i><i></i><i></i><i></i>
-                        </div>
-                        <div class="product_price text-right">
-                          $3<span>.99</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="product_buttons">
-                      <div
-                        class="text-right d-flex flex-row align-items-start justify-content-start"
-                      >
-                        <div
-                          class="product_button product_fav text-center d-flex flex-column align-items-center justify-content-center"
-                        >
-                          <div>
-                            <div>
-                              <img
-                                src="images/heart_2.svg"
-                                class="svg"
-                                alt=""
-                              />
-                              <div>+</div>
-                            </div>
-                          </div>
-                        </div>
-                        <div
-                          class="product_button product_cart text-center d-flex flex-column align-items-center justify-content-center"
-                        >
-                          <div>
-                            <div>
-                              <img src="images/cart.svg" class="svg" alt="" />
-                              <div>+</div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              
-              <div class="col-xl-4 col-md-6">
-                <div class="product">
-                  <div class="product_image">
-                    <img src="images/product_6.jpg" alt="" />
-                  </div>
-                  <div class="product_content">
-                    <div
-                      class="product_info d-flex flex-row align-items-start justify-content-start"
-                    >
-                      <div>
-                        <div>
-                          <div class="product_name">
-                            <a href="product.html"
-                              >Cool Clothing with Brown Stripes</a
-                            >
-                          </div>
-                          <div class="product_category">
-                            In <a href="category.html">Category</a>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="ml-auto text-right">
-                        <div class="rating_r rating_r_4 home_item_rating">
-                          <i></i><i></i><i></i><i></i><i></i>
-                        </div>
-                        <div class="product_price text-right">
-                          $3<span>.99</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="product_buttons">
-                      <div
-                        class="text-right d-flex flex-row align-items-start justify-content-start"
-                      >
-                        <div
-                          class="product_button product_fav text-center d-flex flex-column align-items-center justify-content-center"
-                        >
-                          <div>
-                            <div>
-                              <img
-                                src="images/heart_2.svg"
-                                class="svg"
-                                alt=""
-                              />
-                              <div>+</div>
-                            </div>
-                          </div>
-                        </div>
-                        <div
-                          class="product_button product_cart text-center d-flex flex-column align-items-center justify-content-center"
-                        >
-                          <div>
-                            <div>
-                              <img src="images/cart.svg" class="svg" alt="" />
-                              <div>+</div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>-->
+              {{/each}}    
             </div>
             <div class="row load_more_row">
               <div class="col">
