@@ -166,7 +166,7 @@ $(document).ready(function () {
 
         sub.on("click", function () {
           original = parseFloat(qty.find(".product_num").text());
-          if (original > 0) {
+          if (original > 1) {
             newValue = original - 1;
           }
           num.text(newValue);

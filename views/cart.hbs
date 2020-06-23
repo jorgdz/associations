@@ -41,10 +41,10 @@
 
                 <!-- Cart Items -->
                 <div class="cart_items">
-                  <ul class="cart_items_list">
+                  <ul class="cart_items_list" id="cartItemsList">
 
                     <!-- Cart Item -->
-                    <li class="cart_item item_list d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-end justify-content-start">
+                   <!-- <li class="cart_item item_list d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-end justify-content-start">
                       <div class="product d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-start mr-auto">
                         <div><div class="product_number">1</div></div>
                         <div><div class="product_image"><img src="images/cart_item_1.jpg" alt=""></div></div>
@@ -62,15 +62,15 @@
                         </div>
                       </div>
                       <div class="product_total product_text"><span>Total: </span>$3.99</div>
-                    </li>
+                    </li>      -->     
                   </ul>
                 </div>
 
                 <!-- Cart Buttons -->
                 <div class="cart_buttons d-flex flex-row align-items-start justify-content-start">
                   <div class="cart_buttons_inner ml-sm-auto d-flex flex-row align-items-start justify-content-start flex-wrap">
-                    <div class="button button_clear trans_200"><a href="categories.html">clear cart</a></div>
-                    <div class="button button_continue trans_200"><a href="categories.html">continue shopping</a></div>
+                    <div class="button button_clear trans_200"><a href="#" id="clearCart">vaciar carrito</a></div>
+                    <div class="button button_continue trans_200"><a href="#">continuar comprando</a></div>
                   </div>
                 </div>
               </div>
@@ -84,7 +84,7 @@
                   <ul class="cart_extra_total_list">
                     <li class="d-flex flex-row align-items-center justify-content-start">
                       <div class="cart_extra_total_title">Subtotal</div>
-                      <div class="cart_extra_total_value ml-auto">$29.90</div>
+                      <div class="cart_extra_total_value ml-auto" id="prodSubtotal"></div>
                     </li>
                     <li class="d-flex flex-row align-items-center justify-content-start">
                       <div class="cart_extra_total_title">Shipping</div>
@@ -92,11 +92,11 @@
                     </li>
                     <li class="d-flex flex-row align-items-center justify-content-start">
                       <div class="cart_extra_total_title">Total</div>
-                      <div class="cart_extra_total_value ml-auto">$29.90</div>
+                      <div class="cart_extra_total_value ml-auto" id="prodTotal"></div>
                     </li>
                   </ul>
                   <div class="col-lg-4">
-                    <div class="checkout_button trans_200"><a href="#">proceed to checkout</a></div>
+                    <div class="checkout_button trans_200"><a href="#" id="buyQuote">cotizar compra</a></div>
                   </div>
                 </div>
               </div>
