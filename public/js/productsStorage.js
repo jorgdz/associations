@@ -52,6 +52,7 @@ const addProducts = function (product) {
 
 addCart.addEventListener("click", function () {
   let product = {
+    id: document.getElementById("id").value,
     idProduct: getProducts().length + 1,
     image: document.getElementById("productImg").getAttribute("src"),
     name: productName.textContent,
