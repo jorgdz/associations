@@ -1,0 +1,75 @@
+    <div id="loader"><div class="spinner"></div></div>
+      <script>
+        window.addEventListener("load", function load() {
+          const loader = document.getElementById("loader");
+          setTimeout(function () {
+            loader.classList.add("fadeOut");
+          }, 300);
+        });
+      </script>
+    <div class="peers ai-s fxw-nw h-100vh">
+      <div
+        class="d-n@sm- peer peer-greed h-100 pos-r bgr-n bgpX-c bgpY-c bgsz-cv"
+        style="background-image: url(/images/bg.jpg);"
+      >
+        <div class="pos-a centerXY">
+          <div
+            class="bgc-white bdrs-50p pos-r"
+            style="width: 120px; height: 120px;"
+          >
+            <img
+              class="pos-a centerXY"
+              src="/images/logo.png"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="col-12 col-md-3 peer pX-40 pY-80 h-100 bgc-white scrollable pos-r"
+        style="min-width: 320px;"
+      >
+        {{#if message}}
+          <div class="alert alert-danger" role="alert">
+            {{message}}
+          </div>
+        {{/if}}
+        <h4 class="fw-300 c-grey-900 mB-40">Login</h4>
+        <form action="/login" method="POST">
+          <div class="form-group">
+            <label class="text-normal text-dark">Correo</label>
+            <input type="email" name="email" class="form-control" placeholder="example@example.com" />
+          </div>
+          <div class="form-group">
+            <label class="text-normal text-dark">Contraseña</label>
+            <input
+              type="password"
+              class="form-control"
+              name="password"
+              placeholder="Password"
+            />
+          </div>
+          <div class="form-group">
+            <div class="peers ai-c jc-sb fxw-nw">
+              <div class="peer">
+                <div class="checkbox checkbox-circle checkbox-info peers ai-c">
+                  <input
+                    type="checkbox"
+                    id="inputCall1"
+                    name="inputCheckboxesCall"
+                    class="peer"
+                  />
+                  <label for="inputCall1" class="peers peer-greed js-sb ai-c"
+                    ><span class="peer peer-greed">Recordarme</span></label
+                  >
+                </div>
+              </div>
+              <input type="hidden" name="_csrf" value="{{csrfToken}}">
+              <div class="peer">
+                <button class="btn btn-primary">Entrar</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>

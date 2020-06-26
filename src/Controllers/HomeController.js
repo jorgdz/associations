@@ -9,9 +9,12 @@ const {
   StylesHome,
   StylesProduct,
   StylesCart,
+  StylesAdmin,
   JsHome,
   JsProduct,
   JsCart,
+  JsAdmin,
+  jQuery,
 } = require("../../config/static");
 
 exports.index = async (req, res, next) => {
@@ -42,6 +45,7 @@ exports.index = async (req, res, next) => {
     categories: categories,
     styles: StylesHome,
     javascripts: JsHome,
+    jQuery: jQuery,
   });
 };
 
@@ -72,6 +76,7 @@ exports.show = async (req, res, next) => {
       categories: categories,
       styles: StylesProduct,
       javascripts: JsProduct,
+      jQuery: jQuery,
     });
   } catch (error) {
     console.log(error);
@@ -89,5 +94,6 @@ exports.cart = async (req, res, next) => {
     categories: categories,
     styles: StylesCart,
     javascripts: JsCart,
+    jQuery: jQuery,
   });
 };

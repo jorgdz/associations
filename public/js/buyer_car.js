@@ -79,7 +79,7 @@ const drawProductsCart = function (products) {
     divProductText.classList.add("product_text");
 
     let aName = document.createElement("a");
-    aName.href = "#";
+    aName.href = `/${product.id}`;
     aName.textContent = product.name;
     divProductName.appendChild(aName);
 

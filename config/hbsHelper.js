@@ -16,6 +16,10 @@ hbs.registerHelper("priceDecimal", function (price) {
   return `${decPart == undefined ? "" : "." + decPart}`;
 });
 
+hbs.registerHelper("strFirstUpper", function (str) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+});
+
 hbs.registerHelper("imageProduct", function (images = []) {
   let storageUrl = "/images/default_product.png";
   if (images.length != 0 || images != undefined) {
