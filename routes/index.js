@@ -8,10 +8,13 @@ const { Authenticated, Unauthenticated } = require("../config/auth");
 const HomeController = require("../src/Controllers/HomeController");
 const AdminController = require("../src/Controllers/AdminController");
 const LoginController = require("../src/Controllers/LoginController");
+const ProfileController = require("../src/Controllers/ProfileController");
 
 router.use(csrfProtection);
 
 router.get("/home", Authenticated, AdminController.index);
+router.get("/profile", Authenticated, ProfileController.index);
+router.post("/profile", Authenticated, ProfileController.update);
 router.get("/cart", HomeController.cart);
 
 /* GET, POST Login. */
