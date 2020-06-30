@@ -20,6 +20,20 @@ hbs.registerHelper("strFirstUpper", function (str) {
   return str.charAt(0).toUpperCase() + str.slice(1);
 });
 
+hbs.registerHelper("lessThan", function (number) {
+  return parseInt(number) - 1;
+});
+
+hbs.registerHelper("ifEquals", function (arg1, arg2, options) {
+  return arg1 == arg2 ? options.fn(this) : options.inverse(this);
+});
+
+hbs.registerHelper("ifCondOr", function (arg1, arg2, arg3, options) {
+  return arg1 === arg2 || arg1 === arg3
+    ? options.fn(this)
+    : options.inverse(this);
+});
+
 hbs.registerHelper("imageProduct", function (images = []) {
   let storageUrl = "/images/default_product.png";
   if (images.length != 0 || images != undefined) {

@@ -3,6 +3,7 @@ const User = require("../src/Models").User;
 const Role = require("../src/Models").Role;
 const LocalStrategy = require("passport-local").Strategy;
 const helpers = require("./helpers");
+const { Op } = require("sequelize");
 
 passport.serializeUser(function (user, done) {
   done(null, user.id);
@@ -34,7 +35,7 @@ passport.use(
     },
     function (req, email, password, done) {
       User.findAll({
-        where: { email: email },
+        where: { [Op.or]: [{ username: email }, { email: email }] },
         include: [
           {
             model: Role,
