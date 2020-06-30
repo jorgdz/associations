@@ -1,0 +1,97 @@
+    <div id="loader"><div class="spinner"></div></div>
+    <script>
+      window.addEventListener("load", function load() {
+        const loader = document.getElementById("loader");
+        setTimeout(function () {
+          loader.classList.add("fadeOut");
+        }, 300);
+      });
+    </script>
+
+    <div>
+      
+      {{> sidebar}}
+
+      <div class="page-container">
+        {{> navbar}}
+
+        <main class="main-content bgc-grey-100">
+          <div id="mainContent">
+            <div class="container-fluid">
+              <h4 class="c-grey-900 mT-10 mB-30">Añadir Subcategoría</h4>           
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="bgc-white bd bdrs-3 p-20 mB-20">
+                    <div style="text-align: center;">
+                      {{#if success}}
+                        <div class="alert alert-success" role="alert">
+                          {{success}}
+                        </div>
+                      {{/if}}
+                    </div>
+                    <a href="/subcategory-create" class="btn cur-p btn-primary">Nuevo</a>
+                    <p>
+                      <form action="/sub-categories?size={{size}}&page={{subcategories.currentPage}}&search={{search}}" method="GET">
+                        <div class="row">	
+                          <div class="col col-sm-5">
+                            <input type="hidden" name="size" value="{{size}}" />
+                            <input type="hidden" name="page" value="{{subcategories.currentPage}}" />
+                            <input type="text" name="search" value="{{search}}" placeholder="Buscar..." class="form-control" />
+                          </div>		
+                          <div class="col col-sm-3">
+                            <input type="submit" value="Buscar" class="btn btn-secondary" />	
+                          </div>			
+                        </div>
+                      </form>
+                    </p>
+                    <table class="table table-hover table-bordered">
+                      <thead class="thead-dark">
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Nombre de la sub-categoría</th>                    
+                          <th scope="col">Categoría</th>                    
+                          <th scope="col">Editar</th>
+                          <th scope="col">Borrar</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {{#each subcategories.data}}
+                          <tr>
+                            <th scope="row">{{id}}</th>
+                            <td>{{name}}</td>                                    
+                            <td>{{category.name}}</td>                                    
+                            <td>
+                              <a href="/sub-categories/{{id}}" class="btn cur-p btn-info">
+                                <i class="c-light-white-500 ti-pencil"></i>
+                              </a>
+                            </td>
+                            <td>
+                              <a class="btn cur-p btn-danger" href="/sub-categories/destroy/{{id}}"><i class="c-light-white-500 ti-trash"></i></a>
+                            </td>
+                          </tr>
+                        {{/each}}
+                      </tbody>
+                    </table>
+                    <div style="width:100%;text-align: center;">
+                      <div
+                        class="btn-group mr-2"
+                        role="group"
+                        aria-label="First group"
+                      >
+                        <a href="?size={{size}}&page={{subcategories.prev}}&search={{search}}" class="btn btn-primary"><span class="arrow"><i class="ti-angle-left"></i></span></a>
+                        {{#each subcategories.numbersPage as | number |}}
+                          <a href="?size={{../size}}&page={{lessThan number}}&search={{../search}}" class="btn btn-primary">{{number}}</a>
+                        {{/each}}
+                        <a href="?size={{size}}&page={{subcategories.next}}&search={{search}}" class="btn btn-primary"><span class="arrow"><i class="ti-angle-right"></i></span></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>            
+            </div>
+          </div>
+        </main>
+        
+        {{> footerAdm}}
+      </div>
+    </div>

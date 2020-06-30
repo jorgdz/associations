@@ -1,4 +1,6 @@
 const jQuery = "/js/jquery-3.2.1.min.js";
+const JsFetchProduct = "/js/fetchProducts.js";
+const JsSweetAlert = "/js/sweetalert29.js";
 
 const StylesHome = [
   "/plugins/OwlCarousel2-2.2.1/owl.carousel.css",
@@ -12,8 +14,8 @@ const StylesProduct = [
   "/styles/product.css",
   "/styles/product_responsive.css",
 ];
-const StylesCart = ["styles/cart.css", "styles/cart_responsive.css"];
-const StylesAdmin = ["admin/home.css", "admin/style.css"];
+const StylesCart = ["/styles/cart.css", "/styles/cart_responsive.css"];
+const StylesAdmin = ["/admin/home.css", "/admin/style.css"];
 
 const JsHome = ["/js/custom.js", "/js/productsStorage.js"];
 const JsProduct = [
@@ -21,8 +23,8 @@ const JsProduct = [
   "/js/product.js",
   "/js/productsStorage.js",
 ];
-const JsCart = ["js/cart.js", "js/buyer_car.js"];
-const JsAdmin = ["admin/vendor.js", "admin/bundle.js"];
+const JsCart = ["/js/cart.js", "/js/buyer_car.js"];
+const JsAdmin = ["/admin/vendor.js", "/admin/bundle.js"];
 
 module.exports = {
   StylesHome,
@@ -34,4 +36,6 @@ module.exports = {
   JsCart,
   JsAdmin,
   jQuery,
+  JsFetchProduct,
+  JsSweetAlert,
 };

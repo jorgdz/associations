@@ -1,0 +1,84 @@
+    <div id="loader"><div class="spinner"></div></div>
+    <script>
+      window.addEventListener("load", function load() {
+        const loader = document.getElementById("loader");
+        setTimeout(function () {
+          loader.classList.add("fadeOut");
+        }, 300);
+      });
+    </script>
+
+    <div>
+      
+      {{> sidebar}}
+
+      <div class="page-container">
+        {{> navbar}}
+
+        <main class="main-content bgc-grey-100">
+          <div id="mainContent">
+            <div class="row gap-20 masonry pos-r">
+              <div class="masonry-sizer col-md-6"></div>
+              <div class="masonry-item col-md-12">
+                <div class="bgc-white p-20 bd">
+                  <h6 class="c-grey-900">Editar categoría</h6>
+                  <div class="mT-30">
+                    {{#if message}}
+                      <div class="alert alert-danger" role="alert">
+                        {{message}}
+                      </div>
+                    {{/if}}
+                    <form method="POST" action="/categories/update/{{category.id}}" class="container" id="needs-validation" novalidate>
+                      <div class="row">
+                        <div class="col-md-8 mb-3">
+                          <label for="validationCustom01">Nombre de la categoría</label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="validationCustom01"
+                            placeholder="Nombre"                          
+                            name="name"
+                            value="{{category.name}}"
+                            required
+                          />
+                          <div class="invalid-feedback">
+                            Por favor ingresa el nombre de la categoría
+                          </div>
+                        </div>                     
+                      </div>                 
+                      <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                      <button class="btn btn-success" type="submit">
+                        Guardar cambios
+                      </button>
+                    </form>   
+                    <script>
+                      !(function () {
+                        "use strict";
+                        window.addEventListener(
+                          "load",
+                          function () {
+                            var e = document.getElementById("needs-validation");
+                            e.addEventListener(
+                              "submit",
+                              function (t) {
+                                !1 === e.checkValidity() &&
+                                  (t.preventDefault(), t.stopPropagation()),
+                                  e.classList.add("was-validated");
+                              },
+                              !1
+                            );
+                          },
+                          !1
+                        );
+                      })();
+                    </script>                 
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+        
+        {{> footerAdm}}
+      </div>
+    </div>

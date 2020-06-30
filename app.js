@@ -23,6 +23,13 @@ app.set("view engine", "hbs");
 
 hbs.registerPartials(__dirname + "/views/partials");
 
+app.use((req, res, next) => {
+  if (req.originalUrl === "/favicon.ico") {
+    res.status(204).json({ nope: true });
+  } else {
+    next();
+  }
+});
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -42,6 +49,10 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use((req, res, next) => {
   app.locals.message = req.flash("message");
   app.locals.success = req.flash("success");
+  app.locals.name = req.flash("name");
+  app.locals.lastname = req.flash("lastname");
+  app.locals.phone = req.flash("phone");
+  app.locals.email = req.flash("email");
   app.locals.user = req.user;
   next();
 });
