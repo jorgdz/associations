@@ -1,6 +1,9 @@
 const jQuery = "/js/jquery-3.2.1.min.js";
+const Lightbox = "/js/lightbox.js";
 const JsFetchProduct = "/js/fetchProducts.js";
 const JsSweetAlert = "/js/sweetalert29.js";
+
+const LightboxCss = "/styles/lightbox.css";
 
 const StylesHome = [
   "/plugins/OwlCarousel2-2.2.1/owl.carousel.css",
@@ -36,6 +39,8 @@ module.exports = {
   JsCart,
   JsAdmin,
   jQuery,
+  LightboxCss,
+  Lightbox,
   JsFetchProduct,
   JsSweetAlert,
 };

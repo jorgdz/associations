@@ -34,6 +34,19 @@ hbs.registerHelper("ifCondOr", function (arg1, arg2, arg3, options) {
     : options.inverse(this);
 });
 
+hbs.registerHelper("isChecked", function (arg1) {
+  return arg1 == true ? "checked" : "";
+});
+
+/*Verificar si la categoría del producto es igual a una de las categorías existentes*/
+hbs.registerHelper("checkCtg", function (subctg = [], id) {
+  let check = "";
+  subctg.forEach((subcategory) => {
+    if (subcategory.id == id) check = "checked";
+  });
+  return check;
+});
+
 hbs.registerHelper("imageProduct", function (images = []) {
   let storageUrl = "/images/default_product.png";
   if (images.length != 0 || images != undefined) {
