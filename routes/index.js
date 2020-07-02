@@ -18,6 +18,7 @@ const CategoryController = require("../src/Controllers/CategoryController");
 const SubCategoryController = require("../src/Controllers/SubCategoryController");
 const ProductController = require("../src/Controllers/ProductController");
 const ProductApiController = require("../src/Controllers/ProductApiController");
+const ProductImageController = require("../src/Controllers/ProductImageController");
 
 router.use(csrfProtection);
 
@@ -160,10 +161,31 @@ router.get(
 
 /*Products*/
 router.get(
+  "/products/images/:id",
+  Authenticated,
+  Authorization("admin", "vendedor"),
+  ProductImageController.index
+);
+
+router.post(
+  "/products/update/:id",
+  Authenticated,
+  Authorization("admin", "vendedor"),
+  ProductController.update
+);
+
+router.get(
   "/api-products/destroy/:id",
   Authenticated,
   Authorization("admin", "vendedor"),
   ProductApiController.destroy
+);
+
+router.get(
+  "/products/:id",
+  Authenticated,
+  Authorization("admin", "vendedor"),
+  ProductController.edit
 );
 
 router.get(
@@ -173,11 +195,25 @@ router.get(
   ProductApiController.index
 );
 
+router.post(
+  "/products/save",
+  Authenticated,
+  Authorization("admin", "vendedor"),
+  ProductController.save
+);
+
 router.get(
   "/products",
   Authenticated,
   Authorization("admin", "vendedor"),
   ProductController.index
+);
+
+router.get(
+  "/product-create",
+  Authenticated,
+  Authorization("admin", "vendedor"),
+  ProductController.create
 );
 /*End Products*/
 
