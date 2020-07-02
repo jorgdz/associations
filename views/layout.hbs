@@ -19,6 +19,10 @@
     {{#each styles}}
       <link rel="stylesheet" type="text/css" href="{{this}}" />
     {{/each}}
+
+    {{#if LightboxCss}}
+      <link rel="stylesheet" href="{{LightboxCss}}">
+    {{/if}}
   </head>
   <body class="app">
     
@@ -27,7 +31,7 @@
     {{#if jQuery}}
       <script src="{{jQuery}}"></script>
     {{/if}}
-    
+        
     {{#if fetchProductJs}}
       <script src="{{fetchProductJs}}"></script>
     {{/if}}
@@ -42,5 +46,9 @@
     {{#each javascripts}}
       <script src="{{this}}"></script>
     {{/each}}
+
+    {{#if Lightbox}}
+      <script src="{{Lightbox}}"></script>
+    {{/if}}
   </body>
 </html>

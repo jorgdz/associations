@@ -1,0 +1,152 @@
+    <div id="loader"><div class="spinner"></div></div>
+    <script>
+      window.addEventListener("load", function load() {
+        const loader = document.getElementById("loader");
+        setTimeout(function () {
+          loader.classList.add("fadeOut");
+        }, 300);
+      });
+    </script>
+
+    <div>
+      
+      {{> sidebar}}
+
+      <div class="page-container">
+        {{> navbar}}
+
+        <main class="main-content bgc-grey-100">
+          <div id="mainContent">
+            <div class="row gap-20 masonry pos-r">
+              <div class="masonry-sizer col-md-6"></div>
+              <div class="masonry-item col-md-12">
+                <div class="bgc-white p-20 bd">
+                  <h6 class="c-grey-900">Crear nuevo producto</h6>
+                  <div class="mT-30">
+                    {{#if message}}
+                      <div class="alert alert-danger" role="alert">
+                        {{message}}
+                      </div>
+                    {{/if}}
+                    <form method="POST" action="/products/save" class="container" id="needs-validation" novalidate>
+                      <div class="row">
+                        <div class="col-md-8 mb-3">
+                      
+                          <label for="validationCustom01">Nombre del producto</label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="validationCustom01"
+                            placeholder="Nombre"                          
+                            name="name"
+                            value="{{name}}"
+                            required
+                          />
+                          <div class="invalid-feedback">
+                            Por favor ingresa el nombre del producto.
+                          </div>
+
+                          <br>
+                  
+                          <div class="form-group">
+                            <label for="exampleInputEmail1">Descripción</label>                                       
+                            <textarea
+                              name="description"
+                              value="{{description}}"
+                              class="form-control"
+                              placeholder="Descripción del producto"
+                              rows="6"
+                              required
+                            ></textarea>    
+                            <div class="invalid-feedback">
+                              Por favor ingresa el precio del producto
+                            </div>                                           
+                          </div>
+                
+                          <div class="form-group">
+                            <label for="exampleInputEmail1">Precio del producto</label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="validationCustom01"
+                              placeholder="Precio"                          
+                              name="price"
+                              value="{{price}}"
+                              required
+                            />
+                            <div class="invalid-feedback">
+                              Por favor ingresa el precio del producto
+                            </div>
+                          </div>                   
+                          <div class="form-check">
+                            <label class="form-check-label"
+                              ><input
+                                class="form-check-input"
+                                type="checkbox"
+                                name="offer"
+                              />
+                              En oferta</label
+                            >
+                          </div>
+                          <br>
+                          <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                          <button class="btn btn-success" type="submit">
+                            Guardar producto
+                          </button>
+                          <br>
+                          <br>
+                          <br>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                          <h5>Seleccione las subcategorías a las que pertenece su producto:</h5><br>
+                          {{#each categories}}
+                          <span><b>{{name}}</b></span>
+                            {{#each subcategories}}
+                            <div class="form-check">
+                              <label class="form-check-label">
+                                <input
+                                  class="form-check-input"
+                                  type="checkbox"
+                                  name="subcategories"
+                                  value="{{id}}"
+                                />{{name}}</label>
+                            </div>
+                            {{/each}}
+                          {{/each}}
+                          <br>
+                          <br>
+                          <br>
+                        </div>
+                      </div>
+                    </form>   
+                    <script>
+                      !(function () {
+                        "use strict";
+                        window.addEventListener(
+                          "load",
+                          function () {
+                            var e = document.getElementById("needs-validation");
+                            e.addEventListener(
+                              "submit",
+                              function (t) {
+                                !1 === e.checkValidity() &&
+                                  (t.preventDefault(), t.stopPropagation()),
+                                  e.classList.add("was-validated");
+                              },
+                              !1
+                            );
+                          },
+                          !1
+                        );
+                      })();
+                    </script>                 
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+        
+        {{> footerAdm}}
+      </div>
+    </div>
