@@ -1,5 +1,8 @@
 var express = require("express");
+
 var router = express.Router();
+var routerNoCsrf = express.Router();
+
 const csurf = require("csurf");
 const csrfProtection = csurf();
 
@@ -20,9 +23,26 @@ const ProductController = require("../src/Controllers/ProductController");
 const ProductApiController = require("../src/Controllers/ProductApiController");
 const ProductImageController = require("../src/Controllers/ProductImageController");
 
+const multer = require("multer");
+const storage = multer.diskStorage({
+  destination: "public/uploads/",
+  filename: function (req, file, cb) {
+    cb(null, file.originalname);
+  },
+});
+const upload = multer({ storage: storage });
+
 router.use(csrfProtection);
 
 router.get("/home", Authenticated, AdminController.index);
+
+routerNoCsrf.post(
+  "/profile",
+  upload.single("photo"),
+  Authenticated,
+  ProfileController.upload
+);
+
 router.get("/profile", Authenticated, ProfileController.index);
 router.post("/profile", Authenticated, ProfileController.update);
 
@@ -228,4 +248,4 @@ router.get("/logout", Authenticated, LoginController.logout);
 router.get("/:id", HomeController.show);
 router.get("/", HomeController.index);
 
-module.exports = router;
+module.exports = { router, routerNoCsrf };

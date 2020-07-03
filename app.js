@@ -57,7 +57,8 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use("/", indexRouter);
+app.use("/upload", indexRouter.routerNoCsrf);
+app.use("/", indexRouter.router);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
