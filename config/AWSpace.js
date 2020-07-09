@@ -2,6 +2,7 @@
 var AWS = require("aws-sdk");
 var fs = require("fs");
 var path = require("path");
+const Image = require("../src/Models").Image;
 
 function init() {
   AWS.config.update({
@@ -39,6 +40,43 @@ exports.uploadSingle = (file_path, targetName, mimetype) => {
         return resolve(data);
       }
     });
+  });
+};
+
+exports.uploadMultiple = (files = [], id) => {
+  return new Promise((resolve, reject) => {
+    let space = init();
+    let arrayFiles = [];
+
+    for (let x = 0; x < files.length; x++) {
+      const uploadParams = {
+        Bucket: process.env.SPACE_BUCKET,
+        ContentType: files[x].mimetype,
+        ACL: "public-read",
+        Key: files[x].filename,
+        Body: fs.createReadStream(files[x].path),
+      };
+
+      space.upload(uploadParams, function (err, data) {
+        if (err) {
+          console.log("Error", err);
+          return reject(err);
+        }
+        if (data) {
+          console.log("Upload Success", data);
+          Image.create({
+            name: data.key.split("shop/")[1],
+            storageUrl: data.Location,
+            principal: false,
+            ProductId: id,
+          }).then((imageCreated) => {
+            console.log(imageCreated);
+            arrayFiles.push(imageCreated);
+          });
+        }
+      });
+    }
+    return resolve(arrayFiles);
   });
 };
 

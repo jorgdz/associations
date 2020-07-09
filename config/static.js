@@ -2,8 +2,12 @@ const jQuery = "/js/jquery-3.2.1.min.js";
 const Lightbox = "/js/lightbox.js";
 const JsFetchProduct = "/js/fetchProducts.js";
 const JsSweetAlert = "/js/sweetalert29.js";
+const JsDropzone = "/js/dropzone.min.js";
+const configDropzone = "/js/configDropzone.js";
 
 const LightboxCss = "/styles/lightbox.css";
+const DropzoneCss = "/styles/dropzone.min.css";
+const StyleDropzone = "/styles/style-dropzone.css";
 
 const StylesHome = [
   "/plugins/OwlCarousel2-2.2.1/owl.carousel.css",
@@ -43,4 +47,8 @@ module.exports = {
   Lightbox,
   JsFetchProduct,
   JsSweetAlert,
+  JsDropzone,
+  DropzoneCss,
+  StyleDropzone,
+  configDropzone,
 };

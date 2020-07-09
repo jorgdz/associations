@@ -31,6 +31,36 @@ exports.index = async (req, res, next) => {
     },
   ];
 
+  let includeCounts = [
+    {
+      model: User,
+      as: "user",
+      where: {
+        id: { [Op.eq]: req.user.id },
+      },
+    },
+  ];
+
+  if (req.user.role.name == "admin") {
+    include = [
+      {
+        model: User,
+        as: "user",
+      },
+      {
+        model: Image,
+        as: "images",
+      },
+    ];
+
+    includeCounts = [
+      {
+        model: User,
+        as: "user",
+      },
+    ];
+  }
+
   let where = {};
   if (
     search != undefined &&
@@ -57,15 +87,7 @@ exports.index = async (req, res, next) => {
     });
 
     const countProducts = await Product.count({
-      include: [
-        {
-          model: User,
-          as: "user",
-          where: {
-            id: { [Op.eq]: req.user.id },
-          },
-        },
-      ],
+      include: includeCounts,
       where: where,
     });
 

@@ -38,6 +38,21 @@ $(document).ready(function () {
     function updateGallery(selector) {
       let $sel = selector;
       current_image = $sel.data("image-id");
+
+      document.getElementById(
+        "image-gallery-id"
+      ).href = `/images/destroy/${$sel.data("id")}`;
+
+      let imageGalleryIdCheck = document.getElementById(
+        "image-gallery-id-check"
+      );
+      imageGalleryIdCheck.href = `/images/check/${$sel.data("id")}`;
+
+      if ($sel.data("principal") == true) {
+        imageGalleryIdCheck.style.display = "none";
+      } else {
+        imageGalleryIdCheck.style.display = "block";
+      }
       $("#image-gallery-title").text($sel.data("title"));
       $("#image-gallery-image").attr("src", $sel.data("image"));
       disableButtons(counter, $sel.data("image-id"));

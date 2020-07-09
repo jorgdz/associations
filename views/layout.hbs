@@ -23,15 +23,19 @@
     {{#if LightboxCss}}
       <link rel="stylesheet" href="{{LightboxCss}}">
     {{/if}}
+
+    {{#if DropzoneCss}}
+      <link rel="stylesheet" href="{{DropzoneCss}}">
+    {{/if}}
+
+    {{#if StyleDropzone}}
+      <link rel="stylesheet" href="{{StyleDropzone}}">
+    {{/if}}
   </head>
   <body class="app">
     
     {{{body}}}
 
-    {{#if jQuery}}
-      <script src="{{jQuery}}"></script>
-    {{/if}}
-        
     {{#if fetchProductJs}}
       <script src="{{fetchProductJs}}"></script>
     {{/if}}
@@ -42,13 +46,26 @@
     
     <script src="/styles/bootstrap-4.1.2/popper.js"></script>
     <script src="/styles/bootstrap-4.1.2/bootstrap.min.js"></script>
-    
+
     {{#each javascripts}}
       <script src="{{this}}"></script>
     {{/each}}
+    
+    {{#if jQuery}}
+      <script src="{{jQuery}}"></script>
+    {{/if}}
 
     {{#if Lightbox}}
       <script src="{{Lightbox}}"></script>
     {{/if}}
+    
+    {{#if JsDropzone}}
+      <script src="{{JsDropzone}}"></script>
+    {{/if}}
+    
+    {{#if configDropzone}}
+      <script src="{{configDropzone}}"></script>
+    {{/if}}
+
   </body>
 </html>

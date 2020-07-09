@@ -26,13 +26,13 @@
             </div>
           </div>
           <ul class="sidebar-menu scrollable pos-r">
-            <li class="nav-item mT-30 actived">
+            <!--<li class="nav-item mT-30 actived">
               <a class="sidebar-link" href="/home"
                 ><span class="icon-holder"
                   ><i class="c-blue-500 ti-home"></i> </span
                 ><span class="title">Dashboard</span></a
               >
-            </li>
+            </li>-->
             {{#ifEquals user.role.name "admin" }}
             <li class="nav-item">
               <a class="sidebar-link" href="/categories"
@@ -71,14 +71,7 @@
                   ><i class="c-deep-purple-500 ti-comment-alt"></i> </span
                 ><span class="title">Comentarios</span></a
               >
-            </li>
-            <li class="nav-item">
-              <a class="sidebar-link" href="charts.html"
-                ><span class="icon-holder"
-                  ><i class="c-indigo-500 ti-bar-chart"></i> </span
-                ><span class="title">Estadística</span></a
-              >
-            </li>        
+            </li> 
           </ul>
         </div>
       </div>
