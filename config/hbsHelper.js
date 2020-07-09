@@ -47,6 +47,20 @@ hbs.registerHelper("checkCtg", function (subctg = [], id) {
   return check;
 });
 
+hbs.registerHelper("validateImageProfile", function (image) {
+  let storageUrl = "/images/default_user.png";
+  if (
+    image != null &&
+    image != "" &&
+    image != "null" &&
+    image != "[null]" &&
+    image != undefined
+  ) {
+    storageUrl = image;
+  }
+  return storageUrl;
+});
+
 hbs.registerHelper("imageProduct", function (images = []) {
   let storageUrl = "/images/default_product.png";
   if (images.length != 0 || images != undefined) {

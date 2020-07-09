@@ -46,7 +46,7 @@ exports.upload = (req, res, next) => {
     .then((response) => {
       User.findByPk(req.user.id).then((user) => {
         let _user = {
-          photo: req.file.originalname,
+          photo: response.key.split("shop/")[1],
           storageurlphoto: response.Location,
         };
         user.update(_user).then((user) => {

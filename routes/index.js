@@ -24,17 +24,20 @@ const ProductApiController = require("../src/Controllers/ProductApiController");
 const ProductImageController = require("../src/Controllers/ProductImageController");
 
 const multer = require("multer");
-const storage = multer.diskStorage({
-  destination: "public/uploads/",
-  filename: function (req, file, cb) {
-    cb(null, file.originalname);
-  },
-});
-const upload = multer({ storage: storage });
+
+const upload = multer({ dest: "./public/uploads/" });
 
 router.use(csrfProtection);
 
 router.get("/home", Authenticated, AdminController.index);
+
+routerNoCsrf.post(
+  "/images/:id",
+  upload.any("img"),
+  Authenticated,
+  Authorization("admin", "vendedor"),
+  ProductImageController.save
+);
 
 routerNoCsrf.post(
   "/profile",
@@ -180,6 +183,20 @@ router.get(
 /*End Subcategories */
 
 /*Products*/
+router.get(
+  "/images/check/:id",
+  Authenticated,
+  Authorization("admin", "vendedor"),
+  ProductImageController.check
+);
+
+router.get(
+  "/images/destroy/:id",
+  Authenticated,
+  Authorization("admin", "vendedor"),
+  ProductImageController.destroy
+);
+
 router.get(
   "/products/images/:id",
   Authenticated,

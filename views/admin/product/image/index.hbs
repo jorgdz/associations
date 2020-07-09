@@ -17,18 +17,33 @@
 
         <main class="main-content bgc-grey-100">
           <div id="mainContent">
+            <div style="text-align: center;">
+              {{#if success}}
+                <div class="alert alert-success" role="alert">
+                  {{success}}
+                </div>
+              {{/if}}
+              {{#if message}}
+                <div class="alert alert-danger" role="alert">
+                  {{message}}
+                </div>
+              {{/if}}
+            </div>
             <div class="container-fluid">
               <h4 class="c-grey-900 mT-10 mB-30">{{product.name}}</h4>           
+              <a href="#" data-toggle="modal" data-target="#add-image-gallery" class="btn cur-p btn-primary">Añadir</a>
               <div class="row">
-                <a href="/image-create" class="btn cur-p btn-primary">Añadir</a>
                 <div class="row">
                   {{#each product.images}}
                     <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                      <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title=""
+                      <a class="thumbnail" href="#" data-image-id="" data-id="{{id}}" data-principal="{{principal}}" data-toggle="modal" data-title=""
                         data-image="{{storageUrl}}"
                         data-target="#image-gallery">
-                          <img class="img-thumbnail"
-                              src="{{storageUrl}}">
+                          {{#if principal}}
+                            <img class="img-thumbnail" style="border: 3px solid rgba(56, 136, 103, 0.712);" src="{{storageUrl}}">
+                          {{else}}
+                            <img class="img-thumbnail" src="{{storageUrl}}">
+                          {{/if}}
                       </a>
                     </div>
                   {{/each}}
@@ -39,10 +54,10 @@
                     <div class="modal-content">
                       <div class="modal-header">
                           <h4 class="modal-title" id="image-gallery-title"></h4>
-                          <a href="#" class="btn btn-info" id=""><i class="fa fa-check-circle-o"></i>
+                          <a href="#" class="btn btn-info" id="image-gallery-id-check"><i class="fa fa-check-circle-o"></i>
                           </a>
                           &nbsp;
-                          <a href="#" class="btn btn-danger" id=""><i class="fa fa-trash"></i>
+                          <a href="#" class="btn btn-danger" id="image-gallery-id"><i class="fa fa-trash"></i>
                           </a>
                           <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span>
                           </button>
@@ -56,6 +71,38 @@
                                                     
                           <button type="button" id="show-next-image" class="btn btn-secondary float-right"><i class="fa fa-arrow-right"></i>
                           </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="modal fade" id="add-image-gallery" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-md">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                          <h4 class="modal-title" id="image-gallery-title">Agregar imágenes</h4>
+                          
+                          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span>
+                          </button>
+                      </div>
+                      <div class="modal-body">
+                        <form method="POST" action="/upload/images/{{product.id}}" enctype="multipart/form-data">         
+                          <div class="input-group">
+                            <input type="file" name="img[]" multiple="multiple">
+                          </div>
+                          <div class="modal-footer">
+                            <button
+                              type="button"
+                              class="btn btn-secondary"
+                              data-dismiss="modal"
+                            >
+                              Cerrar
+                            </button>
+                            <button type="submit" class="btn btn-primary">
+                              Subir
+                            </button>
+                          </div>
+                        </form>
                       </div>
                     </div>
                   </div>
